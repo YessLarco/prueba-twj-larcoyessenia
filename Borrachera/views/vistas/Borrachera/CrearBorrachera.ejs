@@ -1,0 +1,30 @@
+<h1>Crear Borracheras</h1>
+
+<form action="/Borrachera/CrearBorrachera" method="post">
+    
+    <div class="form-group">
+       <label>Usuarios: </label>
+        <select class="form-control" name="usuBorrachera">
+           <% for(var i=0; i<usuarios.length; i++){ %>
+            <option value="<%= usuarios[i].idUsuario%>"><%= usuarios[i].nombreUsuario%></option>
+            <%  } %>
+        </select>
+    </div>
+       
+    <div class="form-group">
+        <label>Motivo: </label>
+        <input type="text" class="form-control" placeholder="Ingrese el motivo de la borrachera" name="motivo">
+    </div>
+
+    <div class="form-group">
+        <label>Latitud donde empezó: </label>
+        <input type="number" class="form-control" placeholder="Ingrese la latitud de su ubicación"  name="latitudDondeEmpezo">
+    </div>
+
+    <div class="form-group">
+        <label>Longitud donde empezó: </label>
+        <input type="number" class="form-control" placeholder="Ingrese la longitud de su ubicación"  name="longitudDondeEmpezo">
+    </div>
+
+    <button type="submit" class="btn btn-success">Crear Borrachera</button>
+</form>

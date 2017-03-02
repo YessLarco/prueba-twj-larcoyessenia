@@ -1,0 +1,22 @@
+<form action="/Usuario/CrearUsuario" method="post">
+    
+    <h1>Editar Usuario</h1>
+
+    <div class="form-group">
+       <input type="hidden" name="idUsuario" value="<%=usuarioEditar.idUsuario%>">
+        <label>Nombre Usuario: </label>
+        <input type="text" class="form-control" placeholder="Ingrese el nombre del usuario" name="nombreUsuario" value="<%= usuarioAEditar.nombreUsuario%>">
+    </div>
+
+    <div class="form-group">
+        <label>Ciudad de Residencia: </label>
+        <input type="text" class="form-control" placeholder="Ingrese la ciudad de residencia del usuario"  name="ciudadResidencia" value="<%= usuarioAEditar.ciudadResidencia%>">
+    </div>
+
+    <div class="form-group">
+        <label>Fecha de Nacimiento: </label>
+        <input type="date" class="form-control" placeholder="Ingrese la fecha de nacimiento"  name="fechaNacimiento" value="<%= usuarioAEditar.fechaNacimiento%>">
+    </div>
+
+    <button type="submit" class="btn btn-success">Actualizar Usuario</button>
+</form>

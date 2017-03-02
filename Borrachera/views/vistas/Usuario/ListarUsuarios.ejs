@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <div class="table-responsive" align="center">
+            <table class="table table-striped">
+                <h1>Listar usuarios</h1>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Ciudad de Residencia</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var count=1; %>
+                    <% for(var i=0; i<usuarios.length; i++){ %>
+                    <tr>
+                        <td><%= count%></td>
+                        <td><%= usuarios[i].nombreUsuario%></td>
+                        <td><%= usuarios[i].ciudadResidencia%></td>
+                        <td><%= usuarios[i].fechaNacimiento.getUTCFullYear()%> - <%= usuarios[i].fechaNacimiento.getUTCMonth()%> - <%= usuarios[i].fechaNacimiento.getUTCDate()%></td>
+                        <td><a href="/editarUsuario?idUsuario=<%= usuarios[i].idUsuario%>" data-toggle="tooltip" title="Editar Usuario"><button id="boton" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                        <td><a href="/Usuario/borrarUsuario?idUsuario=<%= usuarios[i].idUsuario%>" data-toggle="tooltip" title="Eliminar Usuario"><button id="boton" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+                    </tr>
+                    <% var count=count+1; %>
+                    <%  } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
