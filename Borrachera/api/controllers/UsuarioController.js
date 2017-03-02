@@ -102,35 +102,26 @@ module.exports = {
         console.log(parametros);
         if(req.method == 'POST'){
             if(parametros.idUsuario&&parametros.nombreUsuario){
-                Usuario.findOne({
-                    nombreUsuario: parametros.nombreUsuario
-                }).exec(function(error,usuarioEncontrado){
-                    if(usuarioEncontrado){
-                        return res.view('error',{
+
+                Usuario.update({
+                    idUsuario:parametros.idUsuario
+                },{
+                    ciudadResidencia: parametros.ciudadResidencia,
+                    fechaNacimiento: parametros.fechaNacimiento
+                }).exec(function(error,usuarioEditado){
+                    if (error) { return res.serverError(); }
+                    Usuario.find().exec(function(error,usuariosEncontrados){
+                        if(error) return res.serverError();
+                        return res.view('vistas/Usuario/ListarUsuarios', {
                             title: 'usuarios',
-                            tituloError: 'error',
-                            error: 'EL usuario ya existe',
-                            url: '/usuarios'
-                        })
-                    }else{
-                        Usuario.update({
-                            idUsuario:parametros.idUsuario
-                        },{
-                            correoProf: parametros.correoProf
-                        }).exec(function(error,profesorEditado){
-                            if (error) { return res.serverError(); }
-                            Profesor.find().exec(function(error,profesoresEncontrados){
-                                if(error) return res.serverError();
-                                return res.view('FormularioProfesores/Profesores', {
-                                    title: 'profesores',
-                                    tituloError: '',
-                                    profesores: profesoresEncontrados
-                                });
-                            })
-                        })
-                    }
+                            tituloError: '',
+                            usuarios: usuariosEncontrados
+                        });
+                    })
                 })
+
             }
         }
-    };
+    }
+};
 

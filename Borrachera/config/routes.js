@@ -35,6 +35,7 @@ module.exports.routes = {
   '/': 'RutasController.home',
     '/usuarios': 'RutasController.listarUsuarios',
     '/crearUsuario': 'RutasController.crearUsuario',
+    '/editarUsuario': 'RutasController.editarUsuario',
     
     
     '/crearBorrachera': 'RutasController.crearBorrachera',

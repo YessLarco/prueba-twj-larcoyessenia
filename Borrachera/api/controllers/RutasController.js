@@ -43,6 +43,24 @@ module.exports = {
             })
     },
     
+    editarUsuario: function(req, res) {
+        var parametros = req.allParams();
+        if(parametros.idUsuario){
+            Usuario.findOne({
+                idUsuario: parametros.idUsuario
+            }).exec(function(error,usuarioEncontrado){
+                if (error) return res.serverError()
+                sails.log.info(usuarioEncontrado);
+                return res.view('vistas/Usuario/EditarUsuario',{
+                    title: 'Editar Usuario',
+                    tituloError: '',
+                    usuarioEditar: usuarioEncontrado
+                })
+                
+            })
+        }
+    },
+    
     crearBorrachera: function (req, res) {
         Usuario.find().exec(function(error, usuariosEncontrados){
             return res.view('vistas/Borrachera/crearBorrachera',{
