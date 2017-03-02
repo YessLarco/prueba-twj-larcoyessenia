@@ -60,7 +60,12 @@ module.exports = {
     },
     
     editarBorrachera: function(req, res){
-        
+         var parametros = req.allParams();
+        console.log(parametros);
+        if(req.method == 'POST'){
+            if(parametros.motivo && parametros.usuBorrachera){
+
+                Usuario.update({
     }
 };
 
