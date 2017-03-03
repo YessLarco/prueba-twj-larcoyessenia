@@ -5,6 +5,7 @@
     <div class="form-group">
        <label>Usuarios: </label>
         <select class="form-control" name="usuBorrachera">
+          <option value="Seleccione un usuario">Seleccione un usuario</option>
            <% for(var i=0; i<usuarios.length; i++){ %>
             <option value="<%= usuarios[i].idUsuario%>"><%= usuarios[i].nombreUsuario%></option>
             <%  } %>

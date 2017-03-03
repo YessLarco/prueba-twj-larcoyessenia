@@ -1,10 +1,11 @@
-<h1>Listar Borrachos</h1>
+
 
 
 <div class="row">
     <div class="col-md-offset-1 col-md-10">
        <div class="table-responsive" align="center">
             <table class="table table-striped">
+            <h1>Listar Borrachos</h1>
             <thead>
                 <tr>
                     <th>#</th>
@@ -24,7 +25,7 @@
                     <td><%= usuarios[i].UsuariosBorracheras[j].motivo%></td>
                     <td align="center"><%= usuarios[i].UsuariosBorracheras[j].latitudDondeEmpezo%></td>
                     <td align="center"><%= usuarios[i].UsuariosBorracheras[j].longitudDondeEmpezo%></td>
-                    <td><a href="/editarBorrachera?idBorrachera=<%= usuarios[i].UsuariosBorracheras[j].idBorrachera%>&" data-toggle="tooltip" title="Editar Borrachera"><button id="boton" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                    <td><a href="/editarBorrachera?idBorrachera=<%= usuarios[i].UsuariosBorracheras[j].idBorrachera%>&idUsuario=<%= usuarios[i].idUsuario%>" data-toggle="tooltip" title="Editar Borrachera"><button id="boton" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                         <td><a href="/Borrachera/borrarBorrachera?idBorrachera=<%=  usuarios[i].UsuariosBorracheras[j].idBorrachera%>" data-toggle="tooltip" title="Eliminar Borrachera"><button id="boton" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
                 </tr>
                 <% var count=count+1; %>

@@ -39,7 +39,8 @@ module.exports.routes = {
     
     
     '/crearBorrachera': 'RutasController.crearBorrachera',
-    '/borracheras': 'RutasController.listarBorracheras'
+    '/borracheras': 'RutasController.listarBorracheras',
+    '/editarBorrachera': 'RutasController.editarBorrachera'
 
   /***************************************************************************
   *                                                                          *
